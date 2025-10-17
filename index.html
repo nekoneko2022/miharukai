@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Chat Log</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; line-height: 1.4; padding: 20px; }
+        .chat-container { max-width: 800px; margin: auto; }
+        .chat-message { display: flex; align-items: flex-start; margin-bottom: 15px; background-color: #282828; padding: 10px; border-radius: 8px; list-style-type: none; }
+        .author-photo { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
+        .message-content { flex-grow: 1; }
+        .author-name { font-weight: bold; color: #aaaaaa; margin-right: 8px; }
+        .timestamp { font-size: 0.8em; color: #888888; }
+        .message-text { margin-top: 5px; word-wrap: break-word; }
+        .superchat { border: 2px solid; padding: 8px; }
+        /* スーパーチャットの色分け */
+        .superchat-blue { border-color: #1e88e5; background-color: #1a233a; }
+        .superchat-lightblue { border-color: #00e5ff; background-color: #1a303a; }
+        .superchat-green { border-color: #1de9b6; background-color: #1a3a2d; }
+        .superchat-yellow { border-color: #ffca28; background-color: #3a3a1a; }
+        .superchat-orange { border-color: #f57c00; background-color: #3a2a1a; }
+        .superchat-magenta { border-color: #e91e63; background-color: #3a1a23; }
+        .superchat-red { border-color: #e53935; background-color: #3a1a1a; }
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <ul>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-9:45</span>
+                    <div class="message-text">みなさん、こんにちはー♪</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/aNf0aq8jYMxU_uO4DqDpfmBiB-xDjqQuPNyRQQToNGOwS3x_JXrDBjthceUkyLLXEmIXbqlO2rw=s32-c-k-c0x00ffffff-no-rj" alt="ももたろう's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ももたろう</span>
+                    <span class="timestamp">-7:42</span>
+                    <div class="message-text">こんにちは。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mOGEwMneQ8KUyufRYomK4LEA_d8er4-2NQENIeD88mnQ=s32-c-k-c0x00ffffff-no-rj" alt="タイチョーY's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">タイチョーY</span>
+                    <span class="timestamp">-7:40</span>
+                    <div class="message-text">守る会の皆さん、こんにちは～</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/nbRUMMInWrCFfAsKRR2DhqES_PYT86ULcJHxrdkuQok3buy4KBNLbjs0nNi71kuv1gO49hBWHg=s32-c-k-c0x00ffffff-no-rj" alt="Setouchi822's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">Setouchi822</span>
+                    <span class="timestamp">-7:05</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/z2nCu-kBPutfSv7o1N8u77oGHMwXhzc9ZTwyyx4aWsBEB6EpwncGKBEV81zcMekfrK6QNcZ3B-g=s32-c-k-c0x00ffffff-no-rj" alt="めりちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">めりちゃん</span>
+                    <span class="timestamp">-6:49</span>
+                    <div class="message-text">こんにちは～</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/SwXfggormcmJZ9qs4fPqW_qeASQ8R0zdXLX67zUkDr5P4F-ltofyWPksf1rVCrxBxYx7IDX5jA=s32-c-k-c0x00ffffff-no-rj" alt="かみちゃり's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">かみちゃり</span>
+                    <span class="timestamp">-6:41</span>
+                    <div class="message-text">あかりチャンネルは17:10から</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/9Wp15_MYSvcRfiM0cmZNbtTlofkDnaUjwDUOOlPHzl56BqX3MeTwb9TMLhf3Qcd0UFRjD6j1Zt4=s32-c-k-c0x00ffffff-no-rj" alt="モカまる's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">モカまる</span>
+                    <span class="timestamp">-6:39</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_nZf6gmeMXSFA_EFzZPH85GcjA7VUkPU8SDS5NiHY5Ge2AytOWkejP6nDCFaqQvuuTYhtqynI0g=s32-c-k-c0x00ffffff-no-rj" alt="ケン's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ケン</span>
+                    <span class="timestamp">-6:17</span>
+                    <div class="message-text">タイチョーYさん〜こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/XgPLeaNkY2wToSaDRzmE-Bh5AR2-grLyEfAHeURwn09m_1BnmxaRuwGCMlfeVwGt7HmwXvA4Hg=s32-c-k-c0x00ffffff-no-rj" alt="おから's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">おから</span>
+                    <span class="timestamp">-6:09</span>
+                    <div class="message-text">ぼんにちにゃ〜</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">-5:22</span>
+                    <div class="message-text">こっちのほうが先かシ（（（・＿ 三 ＿・）</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-5:08</span>
+                    <div class="message-text">神の力によって消された？ｗ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mOGEwMneQ8KUyufRYomK4LEA_d8er4-2NQENIeD88mnQ=s32-c-k-c0x00ffffff-no-rj" alt="タイチョーY's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">タイチョーY</span>
+                    <span class="timestamp">-5:07</span>
+                    <div class="message-text">ケンさん、こんにちは～今日もよろしくお願いします</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-4:00</span>
+                    <div class="message-text">ドキシング訴訟ってなんだっけ？</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mOGEwMneQ8KUyufRYomK4LEA_d8er4-2NQENIeD88mnQ=s32-c-k-c0x00ffffff-no-rj" alt="タイチョーY's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">タイチョーY</span>
+                    <span class="timestamp">-3:53</span>
+                    <div class="message-text">これが、先日あかりちゃんがチラ見せした件ですね期日変更</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">-3:36</span>
+                    <div class="message-text">個人情報漏洩かそんなやつですね@_@</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-3:15</span>
+                    <div class="message-text">あー</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-2:59</span>
+                    <div class="message-text">車上運動員？</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">-2:56</span>
+                    <div class="message-text">匂わし拡散だったかな＠＿＠</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mweR4kYhyojntK7LbJJpDHasKxMGY5nFws3WITFnnwuTs=s32-c-k-c0x00ffffff-no-rj" alt="ユミバー's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ユミバー</span>
+                    <span class="timestamp">-2:25</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/Fuqii_9lm2ahL9mSokgNtZZben4IzwxG2RR6ZcAft8FDilDGfpS3fgN0nJTmi6ozheg85Mh4TQ=s32-c-k-c0x00ffffff-no-rj" alt="ユサユサ🐰🏡's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ユサユサ🐰🏡</span>
+                    <span class="timestamp">-2:14</span>
+                    <div class="message-text">こんにちは！</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-2:14</span>
+                    <div class="message-text">多すぎて、、、ｗ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_lsh5o0_it4z752WXPy-ZrX4fU8_Sk_iayfRcReBrXaCdseJScSsvpa44zFT2JmKqndZA=s32-c-k-c0x00ffffff-no-rj" alt="neon's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">neon</span>
+                    <span class="timestamp">-2:05</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_ntLPmJo-Vndn8kNMRIrWkQ2FvKafYcxfi51J-YyHlFpatDUE0njyaH6FzONuQFdBIcHE0TRIL4=s32-c-k-c0x00ffffff-no-rj" alt="シャレ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">シャレ</span>
+                    <span class="timestamp">-1:58</span>
+                    <div class="message-text">よろしくお願いします</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/EiOIITMJ1oACreSQuumCwsZ_qDwXE3YKbfFofzLLzcaIeLJCeViGJ3dCFN0AqFSjvAncE3RRIw=s32-c-k-c0x00ffffff-no-rj" alt="ぴいちご's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ぴいちご</span>
+                    <span class="timestamp">-1:58</span>
+                    <div class="message-text">こんにちは♪ 守る会の皆さまよろしくお願いします</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_l07UcXNfPrV28Ri7EUUB5n5toAqHQZabUM4vIWMaU=s32-c-k-c0x00ffffff-no-rj" alt="CARP1219's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">CARP1219</span>
+                    <span class="timestamp">-1:43</span>
+                    <div class="message-text">こんにちは！</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_keO8fkfNgkMj67T5Zl_8WSlpi6XEWcSWG3N6QuhK1K1YMAWfvldu2j4KehtxUWm4zKvLqj=s32-c-k-c0x00ffffff-no-rj" alt="コスモス's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">コスモス</span>
+                    <span class="timestamp">-1:38</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mtJilwPC3csMSyCkuXVwu6_sV_GcTrEvO1NAL4CxznGNo=s32-c-k-c0x00ffffff-no-rj" alt="まゆぅ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">まゆぅ</span>
+                    <span class="timestamp">-1:32</span>
+                    <div class="message-text">こんにちは(*^▽^)ﾉ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">-1:30</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/IhVR58u9QtUiVAvuDrJHJCWDlJ_CCJJZTL57IGeamTS4PQMpHTni2hxSfLI5R6ONz2a_u_OtCg=s32-c-k-c0x00ffffff-no-rj" alt="餃子男's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">餃子男</span>
+                    <span class="timestamp">-1:06</span>
+                    <div class="message-text">こんにちは〜</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">-0:57</span>
+                    <div class="message-text">だから飯山さん側から訴えたやつになるのかなこれ＠＿＠</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/mAHN-FoW62_KSDmUhwKGQpdc7-4ofk_SsrH-pQmiWoinKHJ4nSPilxVLcbrRmTwtoM4Zxnpr-Q=s32-c-k-c0x00ffffff-no-rj" alt="nobkie's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">nobkie</span>
+                    <span class="timestamp">-0:43</span>
+                    <div class="message-text">こんにちはー</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">-0:37</span>
+                    <div class="message-text">ゴジラ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-0:35</span>
+                    <div class="message-text">あ！？ラクダだ！！！</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/XgPLeaNkY2wToSaDRzmE-Bh5AR2-grLyEfAHeURwn09m_1BnmxaRuwGCMlfeVwGt7HmwXvA4Hg=s32-c-k-c0x00ffffff-no-rj" alt="おから's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">おから</span>
+                    <span class="timestamp">-0:33</span>
+                    <div class="message-text">まもなく〜</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">-0:15</span>
+                    <div class="message-text">あー、提訴した方か！</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_ndcvfGMjJ5N0T9FGGljlW0MIasnhQ51n8SqWws3I87BZNWS8mHL02lh20MpWB32TlN3A=s32-c-k-c0x00ffffff-no-rj" alt="HIROSHI's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">HIROSHI</span>
+                    <span class="timestamp">-0:07</span>
+                    <div class="message-text">こんにちはー(^^)/</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">-0:04</span>
+                    <div class="message-text">え、ラクダに乗ってきた？</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_lsFw99wRR9J2ypeNtq573o6rnurdaFXce8lMCA-wf6vg=s32-c-k-c0x00ffffff-no-rj" alt="大江龍一's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">大江龍一</span>
+                    <span class="timestamp">0:08</span>
+                    <div class="message-text">待機中</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/UscTSoavv7l6vnfpNunhh0Xn4g2Xqchie0diQP2WfMYfHLV9kKinj7yjtDOAPndWoDr5y8uO=s32-c-k-c0x00ffffff-no-rj" alt="aico M2's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">aico M2</span>
+                    <span class="timestamp">0:08</span>
+                    <div class="message-text">こんにちは〜</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/HkePitTq-HEDbZCmKeKAd8kIFPzhD3Wr_9Kqk9MSwdfXb7D4kJJiDSTINGCjVFBBDrqT79S9fg=s32-c-k-c0x00ffffff-no-rj" alt="にゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">にゃん</span>
+                    <span class="timestamp">0:09</span>
+                    <div class="message-text">あかりちゃんとこからきました。こんにちにゃよろしくお願いします</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_nhXde0Yp3qhp81nwornbAZxoiRHVezFrJUrBfCy4PYrnY=s32-c-k-c0x00ffffff-no-rj" alt="えんあき's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">えんあき</span>
+                    <span class="timestamp">0:15</span>
+                    <div class="message-text">こんにちは応援してます(^^ゞ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">0:15</span>
+                    <div class="message-text">キター(・w</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/Ol32MIF3y42zYak6eXH_PoHCkUWyJPR8KBzvntHXoe5Kie3HBZyy-B2_9PYTqIsETxp-tM9v=s32-c-k-c0x00ffffff-no-rj" alt="Oda's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">Oda</span>
+                    <span class="timestamp">0:20</span>
+                    <div class="message-text">守る会の皆様、理事の皆様、お疲れ様です。よろしくお願いします</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/HkePitTq-HEDbZCmKeKAd8kIFPzhD3Wr_9Kqk9MSwdfXb7D4kJJiDSTINGCjVFBBDrqT79S9fg=s32-c-k-c0x00ffffff-no-rj" alt="にゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">にゃん</span>
+                    <span class="timestamp">0:22</span>
+                    <div class="message-text">きたー</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/W0-gkb4METsM__xGF3iZsDxZKAPPl1Sj6VrrOC2klVaLdNra_X0umDBbWD7KYuHuBHscY7uRWA=s32-c-k-c0x00ffffff-no-rj" alt="蘭ちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">蘭ちゃん</span>
+                    <span class="timestamp">0:25</span>
+                    <div class="message-text">こんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/14OG4q856_EwVBmo61sX_EOzoQlFYU0aDMU1NCeJO9qGax9Np9HW_Kc3RftYSyQEHAET3nkqxg=s32-c-k-c0x00ffffff-no-rj" alt="ロデム's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ロデム</span>
+                    <span class="timestamp">0:27</span>
+                    <div class="message-text">かわいい</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">0:31</span>
+                    <div class="message-text">真面目モードの飯山さんｗ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">0:31</span>
+                    <div class="message-text">10/16</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/0MAPd558NjAOlMNB_4Ixjfg7E2ZyXIHXscoaRmLp_J9alEw9XiqSV6CO5l_rK2FkMCehwbBx=s32-c-k-c0x00ffffff-no-rj" alt="さくら's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">さくら</span>
+                    <span class="timestamp">0:39</span>
+                    <div class="message-text">こんにちは〜</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">0:46</span>
+                    <div class="message-text">がっ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">0:50</span>
+                    <div class="message-text">ほほう</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">0:52</span>
+                    <div class="message-text">へー</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_nfS5HtKaoXl0wxuB0aKKqn96vR54RrmvpslqWzofmjehkjBbjDPsdmYTlE0029Qz0J9p4B=s32-c-k-c0x00ffffff-no-rj" alt="やまねこいいな's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">やまねこいいな</span>
+                    <span class="timestamp">0:57</span>
+                    <div class="message-text">はい</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/W0-gkb4METsM__xGF3iZsDxZKAPPl1Sj6VrrOC2klVaLdNra_X0umDBbWD7KYuHuBHscY7uRWA=s32-c-k-c0x00ffffff-no-rj" alt="蘭ちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">蘭ちゃん</span>
+                    <span class="timestamp">0:57</span>
+                    <div class="message-text">それで良いと思います。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/OYxktVhoSOavYCx76wYKJgEm8-4lQjchLe70EWQ2s55uy2T3CU1Wr_xoe3SYhCKSbu1QzvURUA=s32-c-k-c0x00ffffff-no-rj" alt="めめ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">めめ</span>
+                    <span class="timestamp">0:58</span>
+                    <div class="message-text">お知らせありがとうございます</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">1:00</span>
+                    <div class="message-text">はい</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">1:03</span>
+                    <div class="message-text">承知しました</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/XgPLeaNkY2wToSaDRzmE-Bh5AR2-grLyEfAHeURwn09m_1BnmxaRuwGCMlfeVwGt7HmwXvA4Hg=s32-c-k-c0x00ffffff-no-rj" alt="おから's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">おから</span>
+                    <span class="timestamp">1:05</span>
+                    <div class="message-text">16日103号法廷→WEBに変更</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mOGEwMneQ8KUyufRYomK4LEA_d8er4-2NQENIeD88mnQ=s32-c-k-c0x00ffffff-no-rj" alt="タイチョーY's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">タイチョーY</span>
+                    <span class="timestamp">1:08</span>
+                    <div class="message-text">WEB法廷人なりました。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">1:11</span>
+                    <div class="message-text">おお</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/Fuqii_9lm2ahL9mSokgNtZZben4IzwxG2RR6ZcAft8FDilDGfpS3fgN0nJTmi6ozheg85Mh4TQ=s32-c-k-c0x00ffffff-no-rj" alt="ユサユサ🐰🏡's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ユサユサ🐰🏡</span>
+                    <span class="timestamp">1:13</span>
+                    <div class="message-text">ｆｍｆｍ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kx4niMrdhDIFAHUBmyZElYAdxOMtAIeGEmOHE778-M4GCD4IEFeF8tAwBqe4nZyN-TSJYG=s32-c-k-c0x00ffffff-no-rj" alt="ボーンビアンジィ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ボーンビアンジィ</span>
+                    <span class="timestamp">1:13</span>
+                    <div class="message-text">あかりちゃんこんにちは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_nJcEDcr38Q0KjSJL5pfRfVjF7ZgvVghIfq2LfLG8ZgL_PJsmY=s32-c-k-c0x00ffffff-no-rj" alt="陽氏の末裔's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">陽氏の末裔</span>
+                    <span class="timestamp">1:17</span>
+                    <div class="message-text">陽さん　こんばんは</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_np4HTDD9428QK57XHm455I-zCSgZyAmygR59D0AOW1_E_YTk60oOaDNaSZGvRpQ-rhQw=s32-c-k-c0x00ffffff-no-rj" alt="h.yukihiro's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">h.yukihiro</span>
+                    <span class="timestamp">1:17</span>
+                    <div class="message-text">8/6の被害者の人達に治療費を支払う話は理事会で決議されています。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">1:25</span>
+                    <div class="message-text">これは悪評が定着したな＠＿＠</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_mtJilwPC3csMSyCkuXVwu6_sV_GcTrEvO1NAL4CxznGNo=s32-c-k-c0x00ffffff-no-rj" alt="まゆぅ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">まゆぅ</span>
+                    <span class="timestamp">1:32</span>
+                    <div class="message-text">ドキシングは、晒し行為などと言う意味かな。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">1:36</span>
+                    <div class="message-text">うんうん</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_np4HTDD9428QK57XHm455I-zCSgZyAmygR59D0AOW1_E_YTk60oOaDNaSZGvRpQ-rhQw=s32-c-k-c0x00ffffff-no-rj" alt="h.yukihiro's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">h.yukihiro</span>
+                    <span class="timestamp">1:43</span>
+                    <div class="message-text">Bさんへの100万の口約束も有効です。契約不履行をしている飯山陽</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">1:49</span>
+                    <div class="message-text">ドキシング訴訟ですよ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_l07UcXNfPrV28Ri7EUUB5n5toAqHQZabUM4vIWMaU=s32-c-k-c0x00ffffff-no-rj" alt="CARP1219's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">CARP1219</span>
+                    <span class="timestamp">1:53</span>
+                    <div class="message-text">ドキシング？</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/Fuqii_9lm2ahL9mSokgNtZZben4IzwxG2RR6ZcAft8FDilDGfpS3fgN0nJTmi6ozheg85Mh4TQ=s32-c-k-c0x00ffffff-no-rj" alt="ユサユサ🐰🏡's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ユサユサ🐰🏡</span>
+                    <span class="timestamp">1:58</span>
+                    <div class="message-text">なんでやねん</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">1:59</span>
+                    <div class="message-text">あれ、訴えられた側だった＠＿＠</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">2:10</span>
+                    <div class="message-text">むむむむむ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">2:13</span>
+                    <div class="message-text">ある？？？？</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/CQe8aS3d04se_tro0HvzwoJyMUd5oCeCEd05QkMyhcZrml7ZqJwsCuR7skrPm0vvrqf_O4NYGA=s32-c-k-c0x00ffffff-no-rj" alt="Aki7602's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">Aki7602</span>
+                    <span class="timestamp">2:15</span>
+                    <div class="message-text">紙を見ないと喋れない人だなあ。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/Fuqii_9lm2ahL9mSokgNtZZben4IzwxG2RR6ZcAft8FDilDGfpS3fgN0nJTmi6ozheg85Mh4TQ=s32-c-k-c0x00ffffff-no-rj" alt="ユサユサ🐰🏡's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ユサユサ🐰🏡</span>
+                    <span class="timestamp">2:16</span>
+                    <div class="message-text">ま、まさかｗ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/blxha31dEsUI2QVGNa9ITYGSBpqabUtwKM4Yz9bTVhfM8d1RMVZY-IUWEqpfiKbPkhRiWtIiN-A=s32-c-k-c0x00ffffff-no-rj" alt="ほねめ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ほねめ</span>
+                    <span class="timestamp">2:21</span>
+                    <div class="message-text">おや</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/XgPLeaNkY2wToSaDRzmE-Bh5AR2-grLyEfAHeURwn09m_1BnmxaRuwGCMlfeVwGt7HmwXvA4Hg=s32-c-k-c0x00ffffff-no-rj" alt="おから's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">おから</span>
+                    <span class="timestamp">2:33</span>
+                    <div class="message-text">10/10ドキシング法廷→WEBでしたが40分遅れて開始</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">2:36</span>
+                    <div class="message-text">ハイ</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/eEg0u2YbifFTqY4WYXTmEL3lBu30H_M05RS7dwpN4-QV3MS8T0ThV9Qdl_vsTQKRzpR6NjDYSg=s32-c-k-c0x00ffffff-no-rj" alt="ココア's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ココア</span>
+                    <span class="timestamp">2:36</span>
+                    <div class="message-text">おや？</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/o9-zFgD_CGKB2h3YhTO0etb4iDmagYl1dz0BazZDLqkAcn-19_MfCTekDuCGd5PsvVLBMtGISm0=s32-c-k-c0x00ffffff-no-rj" alt="茂's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">茂</span>
+                    <span class="timestamp">2:37</span>
+                    <div class="message-text">おおおお</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/UyPr-ecTbAoEuIrg3bqB-RNOyR3OX6g8xnGOIl31-xDbRaB7aoTj3VKFnajx8JtrDu-__kxXbQ=s32-c-k-c0x00ffffff-no-rj" alt="ひろ's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ひろ</span>
+                    <span class="timestamp">2:42</span>
+                    <div class="message-text">おお</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/CQe8aS3d04se_tro0HvzwoJyMUd5oCeCEd05QkMyhcZrml7ZqJwsCuR7skrPm0vvrqf_O4NYGA=s32-c-k-c0x00ffffff-no-rj" alt="Aki7602's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">Aki7602</span>
+                    <span class="timestamp">2:42</span>
+                    <div class="message-text">子供が喋ってるみたい。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_kldCy_dS7yeJ2gx_y3vNRnttsmb6QgLXi6qXB9fjNKDA=s32-c-k-c0x00ffffff-no-rj" alt="あみちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">あみちゃん</span>
+                    <span class="timestamp">2:47</span>
+                    <div class="message-text">11/4</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_np4HTDD9428QK57XHm455I-zCSgZyAmygR59D0AOW1_E_YTk60oOaDNaSZGvRpQ-rhQw=s32-c-k-c0x00ffffff-no-rj" alt="h.yukihiro's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">h.yukihiro</span>
+                    <span class="timestamp">2:50</span>
+                    <div class="message-text">虚偽情報を流布したことへの謝罪と寄付金還付をしなさい。</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_nGV_moWoIIkG_DGCzUAzS3kbh9jbtf1r80scM_2WOp7g=s32-c-k-c0x00ffffff-no-rj" alt="猫のひろし's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">猫のひろし</span>
+                    <span class="timestamp">2:58</span>
+                    <div class="message-text">中身なんもない報告</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/ytc/AIdro_nfS5HtKaoXl0wxuB0aKKqn96vR54RrmvpslqWzofmjehkjBbjDPsdmYTlE0029Qz0J9p4B=s32-c-k-c0x00ffffff-no-rj" alt="やまねこいいな's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">やまねこいいな</span>
+                    <span class="timestamp">2:59</span>
+                    <div class="message-text">はい</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/14OG4q856_EwVBmo61sX_EOzoQlFYU0aDMU1NCeJO9qGax9Np9HW_Kc3RftYSyQEHAET3nkqxg=s32-c-k-c0x00ffffff-no-rj" alt="ロデム's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ロデム</span>
+                    <span class="timestamp">3:00</span>
+                    <div class="message-text">ご報告がとうございました</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/upqCxsHK6fxjTue8KdByMrnaHFSg3_A942wJY-Gcc5PPY4XGOF6A_gqs4vy_XASLhCl6wl4A=s32-c-k-c0x00ffffff-no-rj" alt="烏天狗's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">烏天狗</span>
+                    <span class="timestamp">3:02</span>
+                    <div class="message-text">ありがとうございました</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/z2nCu-kBPutfSv7o1N8u77oGHMwXhzc9ZTwyyx4aWsBEB6EpwncGKBEV81zcMekfrK6QNcZ3B-g=s32-c-k-c0x00ffffff-no-rj" alt="めりちゃん's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">めりちゃん</span>
+                    <span class="timestamp">3:03</span>
+                    <div class="message-text">了解です</div>
+                </div>
+            </li>
+
+            <li class="chat-message">
+                <img src="https://yt4.ggpht.com/Fuqii_9lm2ahL9mSokgNtZZben4IzwxG2RR6ZcAft8FDilDGfpS3fgN0nJTmi6ozheg85Mh4TQ=s32-c-k-c0x00ffffff-no-rj" alt="ユサユサ🐰🏡's profile photo" class="author-photo">
+                <div class="message-content">
+                    <span class="author-name">ユサユサ🐰🏡</span>
+                    <span class="timestamp">3:04</span>
+                    <div class="message-text">お疲れ様でした</div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
